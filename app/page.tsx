@@ -2,10 +2,14 @@
 
 import { useState, useEffect } from 'react'
 import AgeGate from '@/components/AgeGate'
+import Navigation from '@/components/Navigation'
 import Hero from '@/components/Hero'
 import EntryForm from '@/components/EntryForm'
 import Prizes from '@/components/Prizes'
 import HowToEnter from '@/components/HowToEnter'
+import WhatsAppCTA from '@/components/WhatsAppCTA'
+import FAQ from '@/components/FAQ'
+import SocialLinks from '@/components/SocialLinks'
 import Footer from '@/components/Footer'
 import FloatingHearts from '@/components/FloatingHearts'
 
@@ -31,34 +35,54 @@ export default function Home() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="spinner"></div>
+      <div className="min-h-screen bg-gradient-to-b from-campari-red to-campari-deepRed flex items-center justify-center">
+        <div className="text-center">
+          <div className="spinner mb-4"></div>
+          <p className="text-white/60 text-sm">Loading...</p>
+        </div>
       </div>
     )
   }
 
   return (
     <main className="relative min-h-screen">
-      <FloatingHearts />
-      
+      {/* Age Gate Overlay */}
       {!isAgeVerified && (
         <AgeGate onVerify={handleAgeVerification} />
       )}
       
+      {/* Navigation - Fixed Header */}
+      <Navigation />
+      
+      {/* Floating Hearts Background */}
+      <FloatingHearts />
+      
+      {/* Hero Section */}
       <Hero />
       
-      <section id="prizes" className="py-16 px-4">
-        <Prizes />
+      {/* Prizes Section */}
+      <Prizes />
+      
+      {/* How to Enter Section */}
+      <HowToEnter />
+      
+      {/* Entry Form Section */}
+      <section id="entry-form" className="py-16 px-4 bg-gradient-to-b from-campari-darkRed to-campari-deepRed">
+        <div className="max-w-4xl mx-auto">
+          <EntryForm />
+        </div>
       </section>
       
-      <section id="how-to-enter" className="py-16 px-4">
-        <HowToEnter />
-      </section>
+      {/* WhatsApp CTA Section */}
+      <WhatsAppCTA />
       
-      <section id="enter" className="py-16 px-4">
-        <EntryForm />
-      </section>
+      {/* FAQ Section */}
+      <FAQ />
       
+      {/* Social Links Section */}
+      <SocialLinks />
+      
+      {/* Footer */}
       <Footer />
     </main>
   )
