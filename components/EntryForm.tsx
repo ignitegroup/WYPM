@@ -14,6 +14,7 @@ interface ReceiptData {
   productSize?: string
   pairingItems?: string[]
   entries?: number
+  receiptUrl?: string
 }
 
 interface FormData {
@@ -78,39 +79,44 @@ export default function EntryForm() {
 
   const analyzeReceipt = async (file: File) => {
     setIsAnalyzing(true)
-    
+
     try {
-      // TODO: Replace with your actual receipt AI API endpoint
-      const formData = new FormData()
-      formData.append('receipt', file)
-      
-      // Simulating API call - replace with actual API
-      // const response = await fetch('/api/analyze-receipt', {
-      //   method: 'POST',
-      //   body: formData,
-      // })
-      // const data = await response.json()
-      
-      // Simulated response for demo
-      await new Promise(resolve => setTimeout(resolve, 2000))
-      
-      const simulatedData: ReceiptData = {
-        status: 'valid',
-        placeOfPurchase: 'Hi-Lo Food Stores',
-        receiptDate: '2026-02-15',
-        receiptNumber: 'RCP-2026-00123',
-        productSize: '750ml',
-        pairingItems: ['Orange Juice', 'Soda Water'],
-        entries: 5,
+      const formDataToSend = new FormData()
+      formDataToSend.append('receipt', file)
+
+      const response = await fetch('/api/analyze-receipt', {
+        method: 'POST',
+        body: formDataToSend,
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to analyze receipt')
       }
-      
-      setReceiptData(simulatedData)
-      
-      if (simulatedData.status === 'valid') {
-        toast.success(`Receipt validated! You'll receive ${simulatedData.entries} entries.`)
-      } else if (simulatedData.status === 'duplicate') {
+
+      const data = await response.json()
+
+      if (data.error) {
+        throw new Error(data.error)
+      }
+
+      const result: ReceiptData = {
+        status: data.status,
+        placeOfPurchase: data.placeOfPurchase,
+        receiptDate: data.receiptDate,
+        receiptNumber: data.receiptNumber,
+        productSize: data.productSize,
+        pairingItems: data.pairingItems,
+        entries: data.entries,
+        receiptUrl: data.receiptUrl,
+      }
+
+      setReceiptData(result)
+
+      if (result.status === 'valid') {
+        toast.success(`Receipt validated! You'll receive ${result.entries} entries.`)
+      } else if (result.status === 'duplicate') {
         toast.error('This receipt has already been used.')
-      } else if (simulatedData.status === 'invalid') {
+      } else if (result.status === 'invalid') {
         toast.error('Could not validate receipt. Please try a clearer image.')
       }
     } catch (error) {
@@ -138,37 +144,51 @@ export default function EntryForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    
+
     if (!receiptData || receiptData.status !== 'valid') {
       toast.error('Please upload a valid receipt.')
       return
     }
-    
+
     if (!formData.agreeTerms) {
       toast.error('Please agree to the terms and conditions.')
       return
     }
-    
+
     setIsSubmitting(true)
-    
+
     try {
-      // TODO: Replace with your actual submission API
-      // const response = await fetch('/api/submit-entry', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({
-      //     ...formData,
-      //     receiptData,
-      //   }),
-      // })
-      
-      // Simulated response
-      await new Promise(resolve => setTimeout(resolve, 1500))
-      
-      const generatedTicket = `CRP-${Date.now().toString(36).toUpperCase()}`
-      setTicketNumber(generatedTicket)
+      const response = await fetch('/api/submit-entry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          phone: formData.phone,
+          country: formData.country,
+          receiptUrl: receiptData.receiptUrl,
+          receiptData: {
+            status: receiptData.status,
+            placeOfPurchase: receiptData.placeOfPurchase,
+            receiptDate: receiptData.receiptDate,
+            receiptNumber: receiptData.receiptNumber,
+            productSize: receiptData.productSize,
+            pairingItems: receiptData.pairingItems,
+          },
+        }),
+      })
+
+      const result = await response.json()
+
+      if (!response.ok || result.error) {
+        throw new Error(result.error || 'Failed to submit entry')
+      }
+
+      setTicketNumber(result.ticketNumber)
+      setReceiptData(prev => prev ? { ...prev, entries: result.entriesCount } : null)
       setIsSubmitted(true)
-      
+
       toast.success('Entry submitted successfully!')
     } catch (error) {
       console.error('Error submitting entry:', error)
@@ -487,9 +507,9 @@ export default function EntryForm() {
             />
             <span className="text-white/70 text-sm">
               I confirm that I am 18 years or older and agree to the{' '}
-              <a href="/terms" className="text-campari-gold hover:underline">Terms & Conditions</a>
+              <a href="/terms-and-conditions" className="text-campari-gold hover:underline">Terms & Conditions</a>
               {' '}and{' '}
-              <a href="/privacy" className="text-campari-gold hover:underline">Privacy Policy</a>.
+              <a href="/privacy-policy" className="text-campari-gold hover:underline">Privacy Policy</a>.
               I consent to receiving promotional communications from Campari.
             </span>
           </label>

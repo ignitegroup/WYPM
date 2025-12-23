@@ -22,17 +22,17 @@ export default function Footer() {
             <h4 className="text-white font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                <a href="/terms" className="text-white/70 hover:text-campari-gold transition-colors text-sm">
+                <a href="/terms-and-conditions" className="text-white/70 hover:text-campari-gold transition-colors text-sm">
                   Terms & Conditions
                 </a>
               </li>
               <li>
-                <a href="/privacy" className="text-white/70 hover:text-campari-gold transition-colors text-sm">
+                <a href="/privacy-policy" className="text-white/70 hover:text-campari-gold transition-colors text-sm">
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="/rules" className="text-white/70 hover:text-campari-gold transition-colors text-sm">
+                <a href="/terms-and-conditions" className="text-white/70 hover:text-campari-gold transition-colors text-sm">
                   Competition Rules
                 </a>
               </li>

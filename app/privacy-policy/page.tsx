@@ -1,282 +1,159 @@
-'use client'
-
-import { motion } from 'framer-motion'
 import Link from 'next/link'
 
-export default function PrivacyPolicyPage() {
-  return (
-    <main className="min-h-screen bg-gradient-to-b from-campari-red via-campari-darkRed to-campari-deepRed">
-      {/* Header */}
-      <header className="py-6 px-4 border-b border-white/10">
-        <div className="max-w-4xl mx-auto flex items-center justify-between">
-          <Link href="/" className="font-display text-2xl font-bold text-white">
-            CAMPARI
-          </Link>
-          <Link 
-            href="/"
-            className="text-campari-gold hover:text-campari-lightGold transition-colors"
-          >
-            ← Back to Home
-          </Link>
-        </div>
-      </header>
+export const metadata = {
+  title: 'Privacy Policy | Campari Red Passion',
+  description: 'Privacy Policy for Campari Red Passion Win Your Passion Moment promotion',
+}
 
-      {/* Content */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="max-w-4xl mx-auto px-4 py-12"
-      >
+export default function PrivacyPolicy() {
+  return (
+    <main className="min-h-screen py-20 px-4">
+      <div className="max-w-4xl mx-auto">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 text-campari-gold hover:text-campari-lightGold mb-8 transition-colors"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+          Back to Home
+        </Link>
+
         <div className="glass-card p-8 md:p-12">
           <h1 className="font-display text-3xl md:text-4xl font-bold text-white mb-2">
             Privacy Policy
           </h1>
-          <p className="text-campari-gold mb-8">
-            Campari "Win Your Red Passion Moment" Promotion
-          </p>
+          <p className="text-white/60 mb-8">Last Updated: February 1, 2026</p>
 
-          <div className="prose prose-invert max-w-none space-y-8 text-white/90">
-            
-            {/* Introduction */}
+          <div className="prose prose-invert max-w-none space-y-8 text-white/80">
             <section>
-              <h2 className="text-xl font-semibold text-white mb-4">1. Introduction</h2>
+              <h2 className="text-campari-gold text-xl font-semibold mb-4">1. Introduction</h2>
               <p>
-                J. Wray & Nephew Limited ("we", "us", "our"), a member of the Campari Group, 
-                is committed to protecting your privacy and personal information. This Privacy 
-                Policy explains how we collect, use, disclose, and safeguard your information 
-                when you participate in the Campari "Win Your Red Passion Moment" promotion 
-                ("Promotion") through our website at www.camparicaribbeanrewards.com or via 
-                WhatsApp.
-              </p>
-              <p>
-                By entering this Promotion, you consent to the collection, use, and disclosure 
-                of your personal information as described in this Privacy Policy.
+                Campari Group and J. Wray & Nephew Limited (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) respect your privacy
+                and are committed to protecting your personal data. This privacy policy explains how we
+                collect, use, and safeguard your information when you participate in the Campari Red
+                Passion &quot;Win Your Passion Moment&quot; promotion.
               </p>
             </section>
 
-            {/* Information We Collect */}
             <section>
-              <h2 className="text-xl font-semibold text-white mb-4">2. Information We Collect</h2>
-              <p className="mb-3">We collect the following personal information when you enter the Promotion:</p>
-              
-              <div className="bg-white/10 rounded-lg p-4 mb-4">
-                <h3 className="text-campari-gold font-semibold mb-2">Personal Information:</h3>
-                <ul className="list-disc pl-6 space-y-1">
-                  <li>Full name</li>
-                  <li>Telephone number</li>
-                  <li>Date of birth</li>
-                  <li>Email address</li>
-                </ul>
-              </div>
-
-              <div className="bg-white/10 rounded-lg p-4 mb-4">
-                <h3 className="text-campari-gold font-semibold mb-2">Proof of Purchase:</h3>
-                <ul className="list-disc pl-6 space-y-1">
-                  <li>Receipt images showing store name, receipt number, and Campari purchase</li>
-                  <li>Purchase date and location information extracted from receipts</li>
-                </ul>
-              </div>
-
-              <div className="bg-white/10 rounded-lg p-4">
-                <h3 className="text-campari-gold font-semibold mb-2">Technical Information:</h3>
-                <ul className="list-disc pl-6 space-y-1">
-                  <li>IP address</li>
-                  <li>Browser type and version</li>
-                  <li>Device information</li>
-                  <li>Cookies and similar technologies</li>
-                </ul>
-              </div>
-            </section>
-
-            {/* How We Use Your Information */}
-            <section>
-              <h2 className="text-xl font-semibold text-white mb-4">3. How We Use Your Information</h2>
-              <p className="mb-3">We use the information we collect for the following purposes:</p>
-              <ul className="list-disc pl-6 space-y-2">
-                <li><strong>Process entries:</strong> To register your entry, validate receipts, and calculate your entry count.</li>
-                <li><strong>Conduct draws:</strong> To include eligible entries in prize draws and select winners.</li>
-                <li><strong>Contact winners:</strong> To notify winners via phone and email and coordinate prize collection.</li>
-                <li><strong>Verify identity:</strong> To confirm winner eligibility and prevent fraud.</li>
-                <li><strong>Marketing communications:</strong> To contact you about this Competition during the Promotion period (with your consent).</li>
-                <li><strong>Advertising:</strong> To feature winners in advertising (print, voice, or digital) related to this Competition.</li>
-                <li><strong>Legal compliance:</strong> To comply with legal obligations and regulatory requirements.</li>
-                <li><strong>Analytics:</strong> To analyze participation patterns and improve future promotions.</li>
+              <h2 className="text-campari-gold text-xl font-semibold mb-4">2. Information We Collect</h2>
+              <p className="mb-4">We collect the following types of personal information:</p>
+              <ul className="list-disc list-inside space-y-2 ml-4">
+                <li><strong>Personal Information:</strong> Name, email address, phone number, country of residence</li>
+                <li><strong>Purchase Information:</strong> Receipt images, store name, purchase date, product details</li>
+                <li><strong>Device Information:</strong> IP address, browser type, device type</li>
+                <li><strong>Usage Data:</strong> How you interact with our website</li>
               </ul>
             </section>
 
-            {/* Consent for Use */}
             <section>
-              <h2 className="text-xl font-semibold text-white mb-4">4. Your Consent</h2>
-              <p className="mb-3">By entering this Promotion, you consent and agree to:</p>
-              <ul className="list-disc pl-6 space-y-2">
-                <li>J. Wray & Nephew Limited's collection, use, and disclosure of your personal information as described herein.</li>
-                <li>J. Wray & Nephew Limited (under the Campari brand) using your name and likeness in advertising and public relations campaigns relating to the Competition, in electronic, print, or other media, for no further consideration.</li>
-                <li>J. Wray & Nephew Limited (JWN) or JWN representatives contacting you about this Competition for the period of this Promotion.</li>
-                <li>Being featured in subsequent advertising (print, voice, or digital) as it relates to this specific Competition if you are selected as a winner.</li>
+              <h2 className="text-campari-gold text-xl font-semibold mb-4">3. How We Use Your Information</h2>
+              <p className="mb-4">We use your personal information to:</p>
+              <ul className="list-disc list-inside space-y-2 ml-4">
+                <li>Process and validate your competition entries</li>
+                <li>Contact winners and arrange prize delivery</li>
+                <li>Send promotional communications (with your consent)</li>
+                <li>Improve our services and website experience</li>
+                <li>Comply with legal obligations</li>
+                <li>Prevent fraud and ensure fair competition</li>
               </ul>
             </section>
 
-            {/* Data Sharing */}
             <section>
-              <h2 className="text-xl font-semibold text-white mb-4">5. Data Sharing</h2>
-              <p className="mb-3">We may share your personal information with:</p>
-              <ul className="list-disc pl-6 space-y-2">
-                <li><strong>Campari Group companies:</strong> For promotional and marketing purposes related to this Competition.</li>
-                <li><strong>Service providers:</strong> Including Ignite Holdings Group of Companies Limited (our collaborative agency for draw management), website hosting providers, and communication service providers.</li>
-                <li><strong>Prize fulfillment partners:</strong> Such as travel agencies (for Dominican Republic trip), Sandals Resorts, furniture suppliers, and Xodus Carnival.</li>
-                <li><strong>Legal and regulatory authorities:</strong> When required by law or to protect our rights.</li>
+              <h2 className="text-campari-gold text-xl font-semibold mb-4">4. Data Sharing</h2>
+              <p className="mb-4">We may share your information with:</p>
+              <ul className="list-disc list-inside space-y-2 ml-4">
+                <li><strong>Service Providers:</strong> Third parties who help us operate the promotion (hosting, receipt processing)</li>
+                <li><strong>Campari Group Companies:</strong> Other entities within the Campari Group</li>
+                <li><strong>Legal Authorities:</strong> When required by law or to protect our rights</li>
+                <li><strong>Prize Partners:</strong> To facilitate prize delivery (e.g., travel partners for trip prizes)</li>
               </ul>
-              <p className="mt-3">
-                We do not sell your personal information to third parties for their marketing purposes.
-              </p>
+              <p className="mt-4">We do not sell your personal information to third parties.</p>
             </section>
 
-            {/* Data Security */}
             <section>
-              <h2 className="text-xl font-semibold text-white mb-4">6. Data Security</h2>
+              <h2 className="text-campari-gold text-xl font-semibold mb-4">5. Data Security</h2>
               <p>
-                We implement appropriate technical and organizational measures to protect your 
-                personal information against unauthorized access, alteration, disclosure, or 
-                destruction. These measures include:
+                We implement appropriate technical and organizational measures to protect your personal
+                data, including:
               </p>
-              <ul className="list-disc pl-6 space-y-1 mt-3">
-                <li>Secure data encryption in transit and at rest</li>
-                <li>Access controls limiting data access to authorized personnel</li>
-                <li>Regular security assessments and updates</li>
-                <li>Secure storage of receipt images</li>
+              <ul className="list-disc list-inside space-y-2 ml-4 mt-4">
+                <li>Encryption of data in transit and at rest</li>
+                <li>Secure cloud storage with access controls</li>
+                <li>Regular security audits and updates</li>
+                <li>Employee training on data protection</li>
               </ul>
-              <p className="mt-3">
-                However, no method of transmission over the Internet or electronic storage is 
-                100% secure. While we strive to protect your personal information, we cannot 
-                guarantee its absolute security.
+            </section>
+
+            <section>
+              <h2 className="text-campari-gold text-xl font-semibold mb-4">6. Data Retention</h2>
+              <p>
+                We retain your personal information for the duration of the promotion and for a period
+                of 12 months thereafter for record-keeping and legal compliance purposes. Receipt images
+                are retained for 6 months after the promotion ends to handle any disputes.
               </p>
             </section>
 
-            {/* Data Retention */}
             <section>
-              <h2 className="text-xl font-semibold text-white mb-4">7. Data Retention</h2>
-              <p>
-                We retain your personal information for the duration of the Promotion and for 
-                a reasonable period thereafter to:
-              </p>
-              <ul className="list-disc pl-6 space-y-1 mt-3">
-                <li>Complete all prize distributions and redemptions</li>
-                <li>Comply with legal and regulatory requirements</li>
-                <li>Resolve any disputes or claims</li>
-                <li>Maintain records for audit purposes</li>
+              <h2 className="text-campari-gold text-xl font-semibold mb-4">7. Your Rights</h2>
+              <p className="mb-4">You have the right to:</p>
+              <ul className="list-disc list-inside space-y-2 ml-4">
+                <li><strong>Access:</strong> Request a copy of your personal data</li>
+                <li><strong>Rectification:</strong> Correct inaccurate or incomplete data</li>
+                <li><strong>Erasure:</strong> Request deletion of your data (subject to legal requirements)</li>
+                <li><strong>Opt-out:</strong> Unsubscribe from marketing communications at any time</li>
+                <li><strong>Portability:</strong> Receive your data in a portable format</li>
               </ul>
-              <p className="mt-3">
-                After this period, your personal information will be securely deleted or anonymized.
+              <p className="mt-4">
+                To exercise these rights, contact us at privacy@camparicaribbeanrewards.com
               </p>
             </section>
 
-            {/* Your Rights */}
             <section>
-              <h2 className="text-xl font-semibold text-white mb-4">8. Your Rights</h2>
-              <p className="mb-3">Subject to applicable law, you may have the right to:</p>
-              <ul className="list-disc pl-6 space-y-2">
-                <li><strong>Access:</strong> Request a copy of the personal information we hold about you.</li>
-                <li><strong>Correction:</strong> Request correction of inaccurate or incomplete information.</li>
-                <li><strong>Deletion:</strong> Request deletion of your personal information (subject to legal retention requirements).</li>
-                <li><strong>Opt-out:</strong> Opt out of receiving marketing communications.</li>
+              <h2 className="text-campari-gold text-xl font-semibold mb-4">8. Cookies</h2>
+              <p className="mb-4">Our website uses cookies for:</p>
+              <ul className="list-disc list-inside space-y-2 ml-4">
+                <li><strong>Essential Cookies:</strong> Required for website functionality (age gate, form submission)</li>
+                <li><strong>Analytics Cookies:</strong> To understand how visitors use our site</li>
+                <li><strong>Marketing Cookies:</strong> To deliver relevant advertisements (with consent)</li>
               </ul>
-              <p className="mt-3">
-                To exercise these rights, please contact us using the information provided below.
+              <p className="mt-4">
+                You can manage cookie preferences through your browser settings.
               </p>
             </section>
 
-            {/* Cookies */}
             <section>
-              <h2 className="text-xl font-semibold text-white mb-4">9. Cookies and Tracking</h2>
-              <p className="mb-3">Our website uses cookies and similar technologies to:</p>
-              <ul className="list-disc pl-6 space-y-1">
-                <li>Remember your age verification status</li>
-                <li>Maintain your session during entry</li>
-                <li>Analyze website usage and performance</li>
-                <li>Improve user experience</li>
+              <h2 className="text-campari-gold text-xl font-semibold mb-4">9. International Transfers</h2>
+              <p>
+                Your data may be transferred to and processed in countries outside Jamaica and the
+                Caribbean. We ensure appropriate safeguards are in place for such transfers.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-campari-gold text-xl font-semibold mb-4">10. Contact Us</h2>
+              <p className="mb-4">
+                For questions about this privacy policy or your personal data, contact us at:
+              </p>
+              <ul className="list-none space-y-2">
+                <li><strong>Email:</strong> privacy@camparicaribbeanrewards.com</li>
+                <li><strong>WhatsApp:</strong> 1 (888) 472-2672</li>
+                <li><strong>Address:</strong> J. Wray & Nephew Limited, 235 Spanish Town Road, Kingston, Jamaica</li>
               </ul>
-              <p className="mt-3">
-                You can control cookies through your browser settings. However, disabling cookies 
-                may affect your ability to use certain features of our website.
-              </p>
             </section>
 
-            {/* Third-Party Links */}
             <section>
-              <h2 className="text-xl font-semibold text-white mb-4">10. Third-Party Links</h2>
+              <h2 className="text-campari-gold text-xl font-semibold mb-4">11. Changes to This Policy</h2>
               <p>
-                Our website may contain links to third-party websites, including social media 
-                platforms. We are not responsible for the privacy practices of these websites. 
-                We encourage you to read the privacy policies of any third-party websites you visit.
+                We may update this privacy policy from time to time. The latest version will always be
+                available on this page with the &quot;Last Updated&quot; date. We encourage you to review this
+                policy periodically.
               </p>
             </section>
-
-            {/* Children's Privacy */}
-            <section>
-              <h2 className="text-xl font-semibold text-white mb-4">11. Children's Privacy</h2>
-              <p>
-                This Promotion is not intended for individuals under 18 years of age. We do not 
-                knowingly collect personal information from persons under 18. If we learn that 
-                we have collected personal information from a minor, we will delete it promptly.
-              </p>
-            </section>
-
-            {/* Changes to Privacy Policy */}
-            <section>
-              <h2 className="text-xl font-semibold text-white mb-4">12. Changes to This Privacy Policy</h2>
-              <p>
-                We may update this Privacy Policy from time to time. Any changes will be posted 
-                on this page with an updated revision date. We encourage you to review this 
-                Privacy Policy periodically.
-              </p>
-            </section>
-
-            {/* Contact Information */}
-            <section>
-              <h2 className="text-xl font-semibold text-white mb-4">13. Contact Us</h2>
-              <p className="mb-3">
-                If you have questions about this Privacy Policy or wish to exercise your rights, 
-                please contact us:
-              </p>
-              <div className="bg-white/10 rounded-lg p-4">
-                <p className="mb-2">
-                  <strong>J. Wray & Nephew Limited</strong><br />
-                  (A member of the Campari Group)
-                </p>
-                <p className="mb-2">
-                  <strong>Website:</strong>{' '}
-                  <a href="https://www.camparicaribbeanrewards.com" className="text-campari-gold hover:underline">
-                    www.camparicaribbeanrewards.com
-                  </a>
-                </p>
-                <p className="mb-2">
-                  <strong>WhatsApp:</strong>{' '}
-                  <a href="https://wa.me/18884722672" className="text-campari-gold hover:underline">
-                    1 (888) 472-2672
-                  </a>
-                </p>
-                <p>
-                  <strong>Social Media:</strong>{' '}
-                  <a href="https://instagram.com/camparicaribbean" className="text-campari-gold hover:underline">
-                    @camparicaribbean
-                  </a>
-                </p>
-              </div>
-            </section>
-
-          </div>
-
-          {/* Footer */}
-          <div className="mt-12 pt-8 border-t border-white/10 text-center">
-            <p className="text-white/50 text-sm">
-              Must be 18 years or older to drink. Drink responsibly.
-            </p>
-            <p className="text-white/40 text-xs mt-2">
-              Last updated: January 2026
-            </p>
           </div>
         </div>
-      </motion.div>
+      </div>
     </main>
   )
 }

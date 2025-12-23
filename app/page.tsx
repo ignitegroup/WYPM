@@ -4,9 +4,9 @@ import { useState, useEffect } from 'react'
 import AgeGate from '@/components/AgeGate'
 import Navigation from '@/components/Navigation'
 import Hero from '@/components/Hero'
-import EntryForm from '@/components/EntryForm'
 import Prizes from '@/components/Prizes'
 import HowToEnter from '@/components/HowToEnter'
+import EntryForm from '@/components/EntryForm'
 import WhatsAppCTA from '@/components/WhatsAppCTA'
 import FAQ from '@/components/FAQ'
 import SocialLinks from '@/components/SocialLinks'
@@ -46,43 +46,42 @@ export default function Home() {
 
   return (
     <main className="relative min-h-screen">
-      {/* Age Gate Overlay */}
+      <FloatingHearts />
+
       {!isAgeVerified && (
         <AgeGate onVerify={handleAgeVerification} />
       )}
-      
-      {/* Navigation - Fixed Header */}
+
       <Navigation />
-      
-      {/* Floating Hearts Background */}
-      <FloatingHearts />
-      
-      {/* Hero Section */}
-      <Hero />
-      
-      {/* Prizes Section */}
-      <Prizes />
-      
-      {/* How to Enter Section */}
-      <HowToEnter />
-      
-      {/* Entry Form Section */}
-      <section id="entry-form" className="py-16 px-4 bg-gradient-to-b from-campari-darkRed to-campari-deepRed">
-        <div className="max-w-4xl mx-auto">
-          <EntryForm />
-        </div>
+
+      <section id="hero">
+        <Hero />
       </section>
-      
-      {/* WhatsApp CTA Section */}
-      <WhatsAppCTA />
-      
-      {/* FAQ Section */}
-      <FAQ />
-      
-      {/* Social Links Section */}
-      <SocialLinks />
-      
-      {/* Footer */}
+
+      <section id="prizes" className="py-16 px-4">
+        <Prizes />
+      </section>
+
+      <section id="how-to-enter" className="py-16 px-4">
+        <HowToEnter />
+      </section>
+
+      <section id="enter" className="py-16 px-4">
+        <EntryForm />
+      </section>
+
+      <section className="py-16 px-4">
+        <WhatsAppCTA />
+      </section>
+
+      <section id="faq" className="py-16 px-4">
+        <FAQ />
+      </section>
+
+      <section className="py-16 px-4">
+        <SocialLinks />
+      </section>
+
       <Footer />
     </main>
   )
