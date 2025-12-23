@@ -35,8 +35,11 @@ export default function Home() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="spinner"></div>
+      <div className="min-h-screen bg-gradient-to-b from-campari-red to-campari-deepRed flex items-center justify-center">
+        <div className="text-center">
+          <div className="spinner mb-4"></div>
+          <p className="text-white/60 text-sm">Loading...</p>
+        </div>
       </div>
     )
   }
